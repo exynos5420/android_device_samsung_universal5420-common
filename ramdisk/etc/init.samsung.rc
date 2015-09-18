@@ -513,5 +513,8 @@ on property:init.svc.bootanim=stopped
     chown system system /efs/FactoryApp/tkey_light14
     chown system system /efs/FactoryApp/tkey_light15
 
+on property:sys.boot_completed=1
+    setprop sys.io.scheduler bfq
+
 on property:apexd.status=ready
     mount none /system/vendor/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
