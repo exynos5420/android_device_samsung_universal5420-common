@@ -1,0 +1,3 @@
+# toolbox.te
+
+allow toolbox ram_device:blk_file rw_file_perms;
