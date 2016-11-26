@@ -331,6 +331,15 @@ on boot
     write /sys/class/thermal/thermal_zone0/oneshot_trip_temp "70 80 85 95"
     write /sys/class/thermal/thermal_zone0/oneshot_trip_freq "1800 1700 1200 600"
 
+    # PowerBoard: Input and Charging Currents Tuning
+    write /sys/devices/platform/sec-battery/ac_input_curr 3000
+    write /sys/devices/platform/sec-battery/ac_chrg_curr 2550
+    write /sys/devices/platform/sec-battery/power_supply/battery/siop_level 99
+    write /sys/devices/platform/sec-battery/siop_input_limit 1300
+    write /sys/devices/platform/sec-battery/siop_charge_limit 1500
+    write /sys/devices/platform/sec-battery/sdp_input_curr 1000
+    write /sys/devices/platform/sec-battery/sdp_chrg_curr 1500
+
 on fs
     mount_all /fstab.universal5420
 
