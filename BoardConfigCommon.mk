@@ -103,6 +103,7 @@ TARGET_POWERHAL_VARIANT := samsung
 # Recovery
 BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/ramdisk/etc/fstab.universal5420
+LZMA_RAMDISK_TARGETS := recovery
 
 # Samsung  OpenMAX Video
 BOARD_USE_STOREMETADATA := true
