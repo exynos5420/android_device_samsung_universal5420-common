@@ -22,4 +22,6 @@ LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libutils libsensor
 LOCAL_SRC_FILES := libshim_gps.cpp
 LOCAL_MODULE := libshim_gps
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
+
 include $(BUILD_SHARED_LIBRARY)

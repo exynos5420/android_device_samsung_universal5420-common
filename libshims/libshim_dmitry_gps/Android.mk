@@ -16,7 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-
 include $(CLEAR_VARS)
 
 LOCAL_SHARED_LIBRARIES := \
@@ -30,4 +29,6 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_SRC_FILES := libshim_dmitry_gps.cpp
 LOCAL_MODULE := libshim_dmitry_gps
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
+
 include $(BUILD_SHARED_LIBRARY)

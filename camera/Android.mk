@@ -52,6 +52,7 @@ LOCAL_HEADER_LIBRARIES += \
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libexynoscamera
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -62,7 +63,7 @@ include $(CLEAR_VARS)
 
 # HAL module implemenation stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.product.board>.so
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_MODULE_RELATIVE_PATH := hw
 
 LOCAL_C_INCLUDES += \
     system/media/camera/include \
@@ -104,7 +105,7 @@ LOCAL_CFLAGS += -DBACK_ROTATION=0
 endif
 
 LOCAL_MODULE := camera.$(TARGET_BOOTLOADER_BOARD_NAME)
-
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_MODULE_TAGS := optional
 
