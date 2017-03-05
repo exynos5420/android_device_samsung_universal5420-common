@@ -43,6 +43,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
+# Camera
+PRODUCT_PACKAGES += \
+    camera.universal5420
+
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-impl \
