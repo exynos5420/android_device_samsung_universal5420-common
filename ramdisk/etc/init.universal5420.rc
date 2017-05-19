@@ -1,7 +1,7 @@
-import init.universal5420.usb.rc
-import init.universal5420.wifi.rc
-import init.samsung.rc
-import init.target.rc
+import /vendor/etc/init/hw/init.universal5420.usb.rc
+import /vendor/etc/init/hw/init.universal5420.wifi.rc
+import /vendor/etc/init/hw/init.samsung.rc
+import /vendor/etc/init/hw/init.target.rc
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
