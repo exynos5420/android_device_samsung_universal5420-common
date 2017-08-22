@@ -67,6 +67,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.1-service.clearkey
 
+# GNNS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
+
 # Graphics
 PRODUCT_PACKAGES += \
     libion \
