@@ -32,7 +32,9 @@ LOCAL_SHARED_LIBRARIES := \
     android.hidl.token@1.0-utils
 
 LOCAL_STATIC_LIBRARIES := \
-    libarect
+    libarect \
+    libbase \
+    libminui
 
 LOCAL_CFLAGS += -DGAIA_FW_BETA
 
