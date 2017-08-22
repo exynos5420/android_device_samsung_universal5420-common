@@ -22,6 +22,8 @@ include $(CLEAR_VARS)
 LOCAL_PRELINK_MODULE := false
 
 LOCAL_SHARED_LIBRARIES := \
+    libcutils \
+    libbinder \
     libhardware \
     liblog \
     libcamera_client \
@@ -67,8 +69,22 @@ LOCAL_SRC_FILES := \
     ExynosCameraHWInterface.cpp
 
 LOCAL_SHARED_LIBRARIES := \
-    libhardware liblog libcamera_client libutils libexynoscamera
+    libexynoscamera \
+    libcutils \
+    libbinder \
+    libhardware \
+    liblog \
+    libcamera_client \
+    libgui \
+    libhidltransport \
+    libsensor \
+    libutils \
+    android.hidl.token@1.0-utils
 
+LOCAL_STATIC_LIBRARIES := \
+    libarect \
+    libbase \
+    libminui
 
 LOCAL_CFLAGS += -DGAIA_FW_BETA
 
