@@ -28,6 +28,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwc.winupdate=0 \
     debug.hwui.renderer=opengl \
     ro.bq.gpu_to_cpu_unsupported=1 \
+    debug.sf.latch_unsignaled=1 \
     ro.opengles.version=196609
 
 # Network
