@@ -21,6 +21,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 # Audio
 TARGET_AUDIOHAL_VARIANT := samsung
+USE_XML_AUDIO_POLICY_CONF := 1
 
 # Backlight
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
