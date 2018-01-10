@@ -25,9 +25,6 @@ lib/libMcRegistry.so
 vendor/lib/liblvverx_3.25.00.so:vendor/lib/soundfx/liblvverx.so|575865ce767dd1ab576118ba47254799757a2a1b
 vendor/lib/liblvvetx_3.25.00.so:vendor/lib/soundfx/liblvvetx.so|a99afe8a6c44a9434284f9836976ab3ad2acbe91
 
-# RIL
-lib/libsecnativefeature.so
-
 # Samsung S5P Multi Format Codec V5/V6 firmware (Used by Widevine)
 vendor/firmware/mfc_fw.bin
 
