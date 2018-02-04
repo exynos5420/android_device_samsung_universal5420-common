@@ -47,6 +47,9 @@ LOCAL_C_INCLUDES += \
 LOCAL_SRC_FILES:= \
     ExynosCameraHWImpl.cpp
 
+LOCAL_HEADER_LIBRARIES += \
+    libnativebase_headers
+
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libexynoscamera
 
