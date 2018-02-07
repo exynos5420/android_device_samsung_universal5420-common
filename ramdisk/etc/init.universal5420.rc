@@ -310,7 +310,7 @@ on boot
     write /sys/class/sec/tsp/tsp_booster_enabled 0
 
 on fs
-    mount_all /fstab.universal5420
+    mount_all /vendor/etc/fstab.universal5420
 
 
     # Permissions for backlight
