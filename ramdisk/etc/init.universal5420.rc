@@ -376,8 +376,8 @@ on fs
     chown system system /sys/class/lcd/panel/temperature
 
     # Permissions for MDNIE
-    chown system media_rw /sys/class/mdnie/mdnie/mode
-    chown system media_rw /sys/class/mdnie/mdnie/scenario
+    chown system system /sys/class/mdnie/mdnie/mode
+    chown system system /sys/class/mdnie/mdnie/scenario
     chown system system /sys/class/mdnie/mdnie/accessibility
     chown system system  /sys/class/mdnie/mdnie/bypass
     chown system system /sys/class/mdnie/mdnie/auto_brightness
