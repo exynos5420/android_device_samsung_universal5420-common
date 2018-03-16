@@ -34,6 +34,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     tinymix \
     android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@2.0-impl
 
 PRODUCT_COPY_FILES += \
@@ -43,6 +44,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
 # Camera
@@ -119,7 +121,8 @@ PRODUCT_COPY_FILES += \
 
 # Memory
 PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service
 
 # Power
 PRODUCT_PACKAGES += \
