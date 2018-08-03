@@ -501,12 +501,12 @@ static int device__poll(struct sensors_poll_device_t *dev, sensors_event_t* data
 static int device__batch(struct sensors_poll_device_1 *dev, int handle,
         int flags, int64_t period_ns, int64_t timeout) {
     sensors_poll_context_t* ctx = (sensors_poll_context_t*) dev;
-    return ctx->batch(handle, flags, period_ns, timeout);
+    ctx->setDelay(handle, period_ns);
+    return 0;
 }
 
 static int device__flush(struct sensors_poll_device_1 *dev, int handle) {
-    sensors_poll_context_t* ctx = (sensors_poll_context_t*) dev;
-    return ctx->flush(handle);
+    return -EINVAL;
 }
 
 static int device__inject_sensor_data(struct sensors_poll_device_1 *dev,
@@ -682,7 +682,6 @@ static void lazy_init_sensors_list() {
 
             int version = sub_hw_versions->at(*it);
             fix_sensor_flags(version, mutable_sensor_list[mutable_sensor_index]);
-
             mutable_sensor_index++;
         }
         module_index++;
