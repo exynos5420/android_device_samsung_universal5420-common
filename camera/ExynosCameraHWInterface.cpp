@@ -38,11 +38,7 @@
 #include <cutils/log.h>
 
 #include "ExynosCameraHWImpl.h"
-//#include "ExynosCameraHWInterface.h"
 #include "ExynosCameraAutoTimer.h"
-
-//#include "exynos_format.h"
-//#include "CameraBase.h"
 
 #define MAX_NUM_OF_CAMERA 2
 
@@ -99,7 +95,7 @@ enum CAMERA_STATE {
     CAMERA_RECORDINGSTOPPED,
 };
 
-static char *camera_state_enum2str[40] = {
+static const char *camera_state_enum2str[40] = {
     "NONE",
     "OPENED",
     "RELEASED",
@@ -197,7 +193,7 @@ int check_camera_state(CAMERA_STATE state, int cameraId)
 
 int HAL_camera_device_close(struct hw_device_t* device)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     int cameraId;
     enum CAMERA_STATE state;
@@ -239,7 +235,7 @@ int HAL_camera_device_close(struct hw_device_t* device)
 int HAL_camera_device_set_preview_window(struct camera_device *dev,
                                                 struct preview_stream_ops *buf)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+//    ExynosCameraAutoTimer autoTimer(__func__);
 
     static int ret;
     int cameraId = obj(dev)->getCameraId();
@@ -258,12 +254,14 @@ void HAL_camera_device_set_callbacks(struct camera_device *dev,
         camera_request_memory get_memory,
         void* user)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
-    ALOGV("DEBUG(%s):", __func__);
-    obj(dev)->setCallbacks(notify_cb, data_cb, data_cb_timestamp,
-                           get_memory,
-                           user);
+
+    obj(dev)->setCallbacks(notify_cb,
+                            data_cb,
+                            data_cb_timestamp,
+                            get_memory,
+                            user);
 }
 
 /**
@@ -276,9 +274,9 @@ void HAL_camera_device_set_callbacks(struct camera_device *dev,
  */
 void HAL_camera_device_enable_msg_type(struct camera_device *dev, int32_t msg_type)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
-    ALOGV("DEBUG(%s):", __func__);
+    ALOGV("DEBUG(%s): %d ", __func__,msg_type);
     obj(dev)->enableMsgType(msg_type);
 }
 
@@ -294,9 +292,9 @@ void HAL_camera_device_enable_msg_type(struct camera_device *dev, int32_t msg_ty
  */
 void HAL_camera_device_disable_msg_type(struct camera_device *dev, int32_t msg_type)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
-    ALOGV("DEBUG(%s):", __func__);
+    ALOGV("DEBUG(%s): %d", __func__, msg_type);
     obj(dev)->disableMsgType(msg_type);
 }
 
@@ -307,9 +305,9 @@ void HAL_camera_device_disable_msg_type(struct camera_device *dev, int32_t msg_t
  */
 int HAL_camera_device_msg_type_enabled(struct camera_device *dev, int32_t msg_type)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
-    ALOGV("DEBUG(%s):", __func__);
+    ALOGV("DEBUG(%s): msg_type:%d ", __func__, msg_type);
     return obj(dev)->msgTypeEnabled(msg_type);
 }
 
@@ -318,7 +316,7 @@ int HAL_camera_device_msg_type_enabled(struct camera_device *dev, int32_t msg_ty
  */
 int HAL_camera_device_start_preview(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     static int ret;
     int cameraId = obj(dev)->getCameraId();
@@ -358,7 +356,7 @@ int HAL_camera_device_start_preview(struct camera_device *dev)
 void HAL_camera_device_stop_recording(struct camera_device *dev);
 void HAL_camera_device_stop_preview(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     int cameraId = obj(dev)->getCameraId();
     enum CAMERA_STATE state;
@@ -411,7 +409,7 @@ void HAL_camera_device_stop_preview(struct camera_device *dev)
  */
 int HAL_camera_device_preview_enabled(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     return obj(dev)->previewEnabled();
@@ -449,7 +447,7 @@ int HAL_camera_device_preview_enabled(struct camera_device *dev)
  */
 int HAL_camera_device_store_meta_data_in_buffers(struct camera_device *dev, int enable)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     return obj(dev)->storeMetaDataInBuffers(enable);
@@ -467,7 +465,7 @@ int HAL_camera_device_store_meta_data_in_buffers(struct camera_device *dev, int 
  */
 int HAL_camera_device_start_recording(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     static int ret;
     int cameraId = obj(dev)->getCameraId();
@@ -506,7 +504,7 @@ int HAL_camera_device_start_recording(struct camera_device *dev)
  */
 void HAL_camera_device_stop_recording(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     int cameraId = obj(dev)->getCameraId();
     enum CAMERA_STATE state;
@@ -539,7 +537,7 @@ void HAL_camera_device_stop_recording(struct camera_device *dev)
  */
 int HAL_camera_device_recording_enabled(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     return obj(dev)->recordingEnabled();
@@ -557,7 +555,7 @@ int HAL_camera_device_recording_enabled(struct camera_device *dev)
 void HAL_camera_device_release_recording_frame(struct camera_device *dev,
                                 const void *opaque)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     obj(dev)->releaseRecordingFrame(opaque);
@@ -570,7 +568,7 @@ void HAL_camera_device_release_recording_frame(struct camera_device *dev,
  */
 int HAL_camera_device_auto_focus(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     return obj(dev)->autoFocus();
@@ -584,7 +582,7 @@ int HAL_camera_device_auto_focus(struct camera_device *dev)
  */
 int HAL_camera_device_cancel_auto_focus(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     return obj(dev)->cancelAutoFocus();
@@ -595,9 +593,10 @@ int HAL_camera_device_cancel_auto_focus(struct camera_device *dev)
  */
 int HAL_camera_device_take_picture(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
+
     return obj(dev)->takePicture();
 }
 
@@ -607,7 +606,7 @@ int HAL_camera_device_take_picture(struct camera_device *dev)
  */
 int HAL_camera_device_cancel_picture(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     return obj(dev)->cancelPicture();
@@ -620,7 +619,7 @@ int HAL_camera_device_cancel_picture(struct camera_device *dev)
 int HAL_camera_device_set_parameters(struct camera_device *dev,
                                             const char *parms)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     String8 str(parms);
@@ -631,7 +630,7 @@ int HAL_camera_device_set_parameters(struct camera_device *dev,
 /** Return the camera parameters. */
 char *HAL_camera_device_get_parameters(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     String8 str;
@@ -642,7 +641,7 @@ char *HAL_camera_device_get_parameters(struct camera_device *dev)
 
 void HAL_camera_device_put_parameters(struct camera_device *dev, char *parms)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     free(parms);
@@ -654,9 +653,9 @@ void HAL_camera_device_put_parameters(struct camera_device *dev, char *parms)
 int HAL_camera_device_send_command(struct camera_device *dev,
                     int32_t cmd, int32_t arg1, int32_t arg2)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    //ExynosCameraAutoTimer autoTimer(__func__);
 
-    ALOGV("DEBUG(%s):", __func__);
+    //ALOGD("DEBUG(%s) %d , %d, %d:", __func__, cmd, arg1, arg2);
     return obj(dev)->sendCommand(cmd, arg1, arg2);
 }
 
@@ -666,7 +665,7 @@ int HAL_camera_device_send_command(struct camera_device *dev,
  */
 void HAL_camera_device_release(struct camera_device *dev)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+    // ExynosCameraAutoTimer autoTimer(__func__);
 
     int cameraId = obj(dev)->getCameraId();
     enum CAMERA_STATE state;
@@ -699,7 +698,7 @@ void HAL_camera_device_release(struct camera_device *dev)
  */
 int HAL_camera_device_dump(struct camera_device *dev, int fd)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+//    ExynosCameraAutoTimer autoTimer(__func__);
 
     ALOGV("DEBUG(%s):", __func__);
     return obj(dev)->dump(fd);
@@ -707,17 +706,17 @@ int HAL_camera_device_dump(struct camera_device *dev, int fd)
 
 int HAL_getNumberOfCameras()
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+//    ExynosCameraAutoTimer autoTimer(__func__);
 
-    ALOGV("DEBUG(%s):", __func__);
+    ALOGD("DEBUG(%s):", __func__);
     return sizeof(sCameraInfo) / sizeof(sCameraInfo[0]);
 }
 
 int HAL_getCameraInfo(int cameraId, struct camera_info *info)
 {
-    ExynosCameraAutoTimer autoTimer(__func__);
+//    ExynosCameraAutoTimer autoTimer(__func__);
 
-    ALOGV("DEBUG(%s):", __func__);
+    ALOGV("DEBUG(%s): cameraId:%d", __func__, cameraId);
     if (cameraId < 0 || cameraId >= HAL_getNumberOfCameras()) {
         ALOGE("ERR(%s):Invalid camera ID %d", __func__, cameraId);
         return -EINVAL;
@@ -765,7 +764,7 @@ extern "C" {
                                       const char *id,
                                       struct hw_device_t** device)
     {
-        ExynosCameraAutoTimer autoTimer(__func__);
+//        ExynosCameraAutoTimer autoTimer(__func__);
 
         int cameraId = atoi(id);
         enum CAMERA_STATE state;
@@ -801,7 +800,7 @@ extern "C" {
 
             g_cam_device[cameraId]->ops = &camera_device_ops;
 
-            ALOGE("DEBUG(%s):open camera %s", __func__, id);
+            ALOGD("DEBUG(%s):open camera %s", __func__, id);
             g_cam_device[cameraId]->priv = new ExynosCameraHWImpl(cameraId, g_cam_device[cameraId]);
             *device = (hw_device_t *)g_cam_device[cameraId];
             ALOGI("[INFO] (%s:%d):camera(%d) out from new g_cam_device[%d]->priv()", __func__, __LINE__, cameraId, cameraId);

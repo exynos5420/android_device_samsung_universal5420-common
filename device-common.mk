@@ -176,6 +176,7 @@ PRODUCT_COPY_FILES += \
 
 # Shims
 PRODUCT_PACKAGES += \
+    libshim_camera \
     libgutils
 
 # TextClassifier

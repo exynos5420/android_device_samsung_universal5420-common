@@ -34,7 +34,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <camera/CameraParametersExtra.h>
 #include <utils/threads.h>
 
 namespace android {

@@ -48,6 +48,15 @@ on post-fs-data
     mkdir /efs/drm 0774 drm system
     mkdir /efs/drm/playready 0775 drm system
 
+    # create camera directory
+    mkdir /data/vendor/camera 0770 camera camera
+
+    # camera server uses files under this directory via a 
+    # kernel module for the FIMC, trying chmod since chown 
+    # not successful
+    chown cameraserver audio /data/misc/media
+    chmod 0776 /data/misc/media
+
 on boot
     # Reduce reserved lowmem from ~48MB to ~12MB
     write /proc/sys/vm/lowmem_reserve_ratio "128 128"
