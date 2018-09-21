@@ -101,3 +101,6 @@ BOARD_USE_SINGLE_PLANE_IN_DRM := false
 BOARD_USES_SCALER := true
 BOARD_USES_GSC_VIDEO := true
 BOARD_USES_ONLY_GSC0_GSC1 := true
+
+# Inherit from the proprietary version
+-include vendor/samsung/universal5420-common/BoardConfigVendor.mk
