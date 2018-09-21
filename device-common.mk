@@ -21,6 +21,16 @@ TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_HALF_RES := true
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio.primary.universal5420 \
+    audio.a2dp.default \
+    audio.r_submix.default \
+    audio.usb.default \
+    tinymix \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl
+
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
 $(call inherit-product, hardware/samsung_slsi/exynos5420/exynos5420.mk)

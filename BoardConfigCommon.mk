@@ -19,6 +19,9 @@ COMMON_PATH := device/samsung/universal5420-common
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
+# Audio
+TARGET_AUDIOHAL_VARIANT := samsung
+
 # Binder
 TARGET_USES_64_BIT_BINDER := true
 
