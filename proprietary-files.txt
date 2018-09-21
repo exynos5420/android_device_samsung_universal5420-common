@@ -1,0 +1,30 @@
+# All unpinned blobs are from T700XXU1CTK1
+# Vendor security patch level 2017-08-01
+
+# Bluetooth firmware - pinned to T705XXU1CPK2
+vendor/firmware/bcm4350_V0301.0609.hcd|e6850eace7336e7390d53e7d9f47cc008f3c18f6
+
+# Camera
+lib/libexynoscamera.so
+lib/libvdis.so
+
+# Graphics
+vendor/lib/egl/libGLES_mali.so
+lib/libGLES_trace.so
+
+# Mobicore
+bin/cs
+bin/mcDriverDaemon
+lib/libMcClient.so
+lib/libMcRegistry.so
+
+# RIL
+lib/libsecnativefeature.so
+
+# Samsung S5P Multi Format Codec V5/V6 firmware (Used by Widevine)
+vendor/firmware/mfc_fw.bin
+
+# SRP Audio driver for Samsung Exynos firmware
+vendor/firmware/srp_cga.bin
+vendor/firmware/srp_data.bin
+vendor/firmware/srp_vliw.bin
