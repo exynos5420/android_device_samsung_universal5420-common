@@ -22,6 +22,9 @@ TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 # Audio
 TARGET_AUDIOHAL_VARIANT := samsung
 
+# Backlight
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
+
 # Binder
 TARGET_USES_64_BIT_BINDER := true
 
