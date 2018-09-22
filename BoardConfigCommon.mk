@@ -86,6 +86,9 @@ TARGET_SLSI_VARIANT := bsp
 TARGET_SOC := exynos5420
 TARGET_BOOTLOADER_BOARD_NAME := universal5420
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/ramdisk/etc/fstab.universal5420
+
 # Samsung  OpenMAX Video
 BOARD_USE_STOREMETADATA := true
 BOARD_USE_METADATABUFFERTYPE := true
