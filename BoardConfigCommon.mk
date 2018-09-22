@@ -114,6 +114,9 @@ BOARD_USES_SCALER := true
 BOARD_USES_GSC_VIDEO := true
 BOARD_USES_ONLY_GSC0_GSC1 := true
 
+# Seccomp filters
+BOARD_SECCOMP_POLICY += $(COMMON_PATH)/seccomp
+
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true
 BOARD_WLAN_DEVICE                := bcmdhd
