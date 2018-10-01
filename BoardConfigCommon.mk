@@ -145,9 +145,6 @@ BOARD_USES_SCALER := true
 BOARD_USES_GSC_VIDEO := true
 BOARD_USES_ONLY_GSC0_GSC1 := true
 
-# Seccomp filters
-BOARD_SECCOMP_POLICY += $(COMMON_PATH)/seccomp
-
 # SELinux
 include device/lineage/sepolicy/exynos/sepolicy.mk
 BOARD_SEPOLICY_TEE_FLAVOR := mobicore
