@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -e
 
 VENDOR=samsung
 DEVICE_COMMON=universal5420-common
@@ -41,6 +40,29 @@ write_headers "chagalllte chagallltetmo chagallwifi ha3g klimtlte klimtltecan kl
 
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
+
+###################################################################################################
+# CUSTOM PART START                                                                               #
+###################################################################################################
+OUTDIR=vendor/$VENDOR/$DEVICE_COMMON
+(cat << EOF) >> $LINEAGE_ROOT/$OUTDIR/Android.mk
+include \$(CLEAR_VARS)
+
+EGL_LIBS := libOpenCL.so libOpenCL.so.1 libOpenCL.so.1.1
+
+EGL_32_SYMLINKS := \$(addprefix \$(TARGET_OUT_VENDOR)/lib/,\$(EGL_LIBS))
+\$(EGL_32_SYMLINKS): \$(LOCAL_INSTALLED_MODULE)
+	@echo "Symlink: EGL 32-bit lib: \$@"
+	@mkdir -p \$(dir \$@)
+	@rm -rf \$@
+	\$(hide) ln -sf /vendor/lib/egl/libGLES_mali.so \$@
+
+ALL_DEFAULT_INSTALLED_MODULES += \$(EGL_32_SYMLINKS) 
+
+EOF
+###################################################################################################
+# CUSTOM PART END                                                                                 #
+###################################################################################################
 
 # Done
 write_footers
