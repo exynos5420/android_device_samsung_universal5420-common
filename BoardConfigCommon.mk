@@ -124,6 +124,10 @@ BOARD_USES_ONLY_GSC0_GSC1 := true
 # Seccomp filters
 BOARD_SECCOMP_POLICY += $(COMMON_PATH)/seccomp
 
+# Shims
+TARGET_LD_SHIM_LIBS += \
+    /vendor/lib/egl/libGLES_mali.so|/vendor/lib/libgutils.so
+
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true
 BOARD_WLAN_DEVICE                := bcmdhd
