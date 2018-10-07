@@ -17,9 +17,6 @@ on init
 
     export EXTERNAL_STORAGE /sdcard
 
-    mkdir /efs 0771 radio system
-
-
 	symlink /dev/block/mmcblk0p8 /dev/block/param
 	
 on post-fs-data
@@ -332,23 +329,6 @@ on boot
 
 on fs
     mount_all /fstab.universal5420
-
-    chown radio system /efs
-    chmod 0771 /efs
-		
-	
-    # For Absolute Persistence Partition 
-    mkdir /persdata 0755 system system 
-    mkdir /persdata/absolute 0750 system system 
-      
-    wait /dev/block/platform/dw_mmc.0/by-name/PERSDATA 
-    check_fs /dev/block/platform/dw_mmc.0/by-name/PERSDATA ext4 
-    mount ext4 /dev/block/platform/dw_mmc.0/by-name/PERSDATA /persdata/absolute nosuid nodev barrier=1 
-      
-    chown system system /persdata 
-    chmod 0755 /persdata 
-    chown system system /persdata/absolute 
-    chmod 0750 /persdata/absolute
 
 
     # Permissions for backlight

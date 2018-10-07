@@ -90,6 +90,9 @@ BOARD_USES_TRUST_KEYMASTER := true
 # Media
 TARGET_OMX_LEGACY_RESCALING := true
 
+# Partitions
+BOARD_ROOT_EXTRA_FOLDERS := efs persist
+
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
