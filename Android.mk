@@ -18,6 +18,7 @@ LOCAL_PATH := device/samsung/universal5420-common
 
 ifneq ($(filter chagalllte chagallltetmo chagallwifi ha3g klimtlte klimtltecan klimttd klimtwifi n1awifi n2awifi v1a3g v1awifi v2awifi, $(TARGET_DEVICE)),)
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
+  subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
+  $(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
 
 endif
