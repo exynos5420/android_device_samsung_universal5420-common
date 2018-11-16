@@ -132,6 +132,7 @@ on boot
     # Permissions for TouchScreen
     chown system radio /sys/class/sec/tsp/cmd
 	chown system system /sys/class/sec/tsp/input/enabled
+	chmod 0660 /sys/class/sec/tsp/input/enabled
     
     # Permissions for Touchkey
     chown system radio /sys/class/sec/sec_touchkey/brightness
@@ -148,6 +149,7 @@ on boot
     chown system radio /sys/class/sec/sec_touchkey/flip_mode
     chown system radio /sys/class/sec/sec_touchkey/boost_level
 	chown system system /sys/class/sec/sec_touchkey/input/enabled
+	chmod 0660 /sys/class/sec_touchkey/input/enabled
 
     # KeyDisabler permission
     chown system system /sys/class/sec/sec_touchkey/touchkey_enabled
