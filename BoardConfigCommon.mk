@@ -52,9 +52,6 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
-# Extended filesystem support
-TARGET_EXFAT_DRIVER := sdfat
-
 # Extracted with libbootimg
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
