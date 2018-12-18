@@ -67,11 +67,6 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl.exynos5420 \
     camera.universal5420
 
-# Configstore
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-impl \
-    android.hardware.configstore@1.1-service
-
 # IR
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-service.samsung
