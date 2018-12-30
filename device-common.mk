@@ -17,7 +17,9 @@
 COMMON_PATH := device/samsung/universal5420-common
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(COMMON_PATH)/overlay \
+    $(COMMON_PATH)/overlay-lineage
 
 # Boot animation
 TARGET_BOOTANIMATION_PRELOAD := true
