@@ -162,6 +162,7 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.universal5420 \
+    fstab.ramdisk \
     init.samsung.rc \
     init.universal5420.rc \
     init.recovery.universal5420.rc \
