@@ -19,6 +19,11 @@ on fs
     mkdir /dev/bus/usb 0755 root root
     setprop sys.usb.ffs.aio_compat 1
 
+on post-fs-data
+    # avoid USB crash
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+
 on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 04e8
