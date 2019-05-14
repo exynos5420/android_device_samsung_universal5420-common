@@ -32,6 +32,38 @@
 /dev/media0               0660   system     camera
 /dev/media1               0660   system     camera
 
+# Mali Device
+/sys/devices/platform/mali.0  power_policy    0644    system  system
+/sys/devices/platform/mali.0  dvfs_table      0644    radio   system
+/sys/devices/platform/mali.0  dvfs_min_lock   0644    radio   system
+/sys/devices/platform/mali.0  dvfs_max_lock   0644    radio   system
+/sys/devices/platform/mali.0  highspeed_clock 0644    radio   system
+/sys/devices/platform/mali.0  highspeed_load  0644    radio   system
+
+/sys/class/devfreq/exynos5-busfreq-mif en_monitoring 0664 radio system
+/sys/class/devfreq/exynos5-busfreq-mif freq_table    0664 radio system
+/sys/class/devfreq/exynos5-busfreq-mif min_freq      0664 radio system
+/sys/class/devfreq/exynos5-busfreq-mif max_freq      0664 radio system
+
+/sys/class/devfreq/exynos5-busfreq-int en_monitoring 0664 radio system
+/sys/class/devfreq/exynos5-busfreq-int freq_table    0664 radio system
+/sys/class/devfreq/exynos5-busfreq-int min_freq      0664 radio system
+/sys/class/devfreq/exynos5-busfreq-int max_freq      0664 radio system
+
+/sys/class/thermal/thermal_zone0/boost_mode          0664 radio system
+
+# USB OTG
+/sys/class/sec/switch       usb_state   0664    radio   system
+/sys/class/sec/switch       chg_type    0664    radio   system
+/sys/class/sec/switch       otg_test    0664    radio   system
+/sys/class/sec/switch       usb_sel     0664    radio   system
+/sys/class/sec/switch       uart_sel    0664    radio   system
+/sys/class/sec/switch       uart_en     0664    radio   system
+/sys/class/sec/switch       apo_factory 0664    radio   system
+
+/sys/class/host_notify/usb_otg      booster 0664    radio   system
+/sys/class/usb_notify/usb_control   disable 0664    system  usb
+
 # ALP Audio
 /dev/srp                  0660   system     audio
 

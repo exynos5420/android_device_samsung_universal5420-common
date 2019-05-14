@@ -309,13 +309,6 @@ on boot
     write /proc/sys/net/core/rmem_max  1048576
     write /proc/sys/net/core/wmem_max  2097152
 
-    # Switch Device
-    chown system radio /sys/class/sec/switch/usb_sel
-    chown system radio /sys/class/sec/switch/uart_sel
-    chown system radio /sys/class/sec/switch/uart_en
-    chown system radio /sys/class/sec/switch/otg_test
-    chown system radio /sys/class/sec/switch/apo_factory
-
     # GPIO DVS
     chown radio system /sys/class/secgpio_check/secgpio_check_all/gpioinit_check
     chown radio system /sys/class/secgpio_check/secgpio_check_all/gpiosleep_check
@@ -449,14 +442,6 @@ on boot
     # usb detect
     mkdir /dev/bus 0755 root root
     mkdir /dev/bus/usb 0755 root root
-
-    # OTG Test
-    chown system radio /sys/class/host_notify/usb_otg/booster
-    chmod 0664 /sys/class/host_notify/usb_otg/booster
-
-    # usb disable
-    chown system usb /sys/class/usb_notify/usb_control/disable
-    chmod 0664 /sys/class/usb_notify/usb_control/disable
 
     # Sensors permissions
     # Accelerometer_sensor
