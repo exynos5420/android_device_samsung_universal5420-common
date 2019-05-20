@@ -35,7 +35,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+    media.stagefright.less-secure=true \
+    debug.stagefright.ccodec=0
 
 # Network
 # Define default initial receive window size in segments.
