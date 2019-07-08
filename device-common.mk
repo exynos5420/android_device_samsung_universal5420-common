@@ -109,6 +109,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service.software
+
 # Keymaster
 PRODUCT_PACKAGES += \
     keystore.exynos5 \
