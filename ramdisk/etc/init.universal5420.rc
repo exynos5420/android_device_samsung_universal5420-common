@@ -373,16 +373,6 @@ service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     group system inet net_raw wakelock
     ioprio be 0
 
-# Charger
-on property:ro.bootmode=charger
-    mount ext4 /dev/block/mmcblk0p18 /system wait ro
-    copy /system/etc/battery_charging_temp.data /sys/class/power_supply/battery/batt_temp_table
-
-on property:ro.bootmode=charger
-    wait /dev/block/platform/dw_mmc.0/by-name/EFS
-    check_fs /dev/block/platform/dw_mmc.0/by-name/EFS ext4
-    mount ext4 /dev/block/platform/dw_mmc.0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
-
 on property:ro.bootmode=charger
     class_start charger
 
