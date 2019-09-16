@@ -532,3 +532,6 @@ on property:init.svc.bootanim=stopped
     chown system system /efs/FactoryApp/tkey_light13
     chown system system /efs/FactoryApp/tkey_light14
     chown system system /efs/FactoryApp/tkey_light15
+
+on property:apexd.status=ready
+    mount none /system/vendor/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
