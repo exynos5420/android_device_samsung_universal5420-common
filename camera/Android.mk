@@ -28,7 +28,7 @@ LOCAL_SHARED_LIBRARIES := \
     liblog \
     libcamera_client \
     libgui \
-    libhidltransport \
+    libhidlbase \
     libsensor \
     libutils \
     android.hidl.token@1.0-utils
@@ -80,7 +80,7 @@ LOCAL_SHARED_LIBRARIES := \
     liblog \
     libcamera_client \
     libgui \
-    libhidltransport \
+    libhidlbase \
     libsensor \
     libutils \
     android.hidl.token@1.0-utils
