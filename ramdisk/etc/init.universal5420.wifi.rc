@@ -46,7 +46,7 @@ on boot
     setprop wifi.interface wlan0
 
 # Run deferred initcalls of builtin kernel modules (bcmdhd)
-service wifiloader /system/bin/wifiloader
+service wifiloader /vendor/bin/wifiloader
     class main
     oneshot
 

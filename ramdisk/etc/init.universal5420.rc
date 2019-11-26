@@ -352,7 +352,7 @@ on fs
     rm /data/system/gps/sv_cno.info
 
 # GPS
-service gpsd /system/bin/gpsd -c /system/etc/gps.xml
+service gpsd /vendor/bin/gpsd -c /vendor/etc/gps.xml
     class main
     user gps
     group system inet net_raw wakelock

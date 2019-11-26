@@ -2,23 +2,23 @@
 # Vendor security patch level 2017-08-01
 
 # aptX - from marlin - OPM1.171019.011
-lib/libaptX_encoder.so|984739a0bc968e18f75ced205733fe3f51c2d4f0
+lib/libaptX_encoder.so:vendor/lib/libaptX_encoder.so|984739a0bc968e18f75ced205733fe3f51c2d4f0
 
 # Bluetooth firmware - pinned to T705XXU1CPK2
 vendor/firmware/bcm4350_V0301.0609.hcd|e6850eace7336e7390d53e7d9f47cc008f3c18f6
 
 # Camera
-lib/libexynoscamera.so
-lib/libvdis.so
+lib/libexynoscamera.so:vendor/lib/libexynoscamera.so
+lib/libvdis.so:vendor/lib/libvdis.so
 
 # Graphics
 vendor/lib/egl/libGLES_mali.so
-lib/libGLES_trace.so
+lib/libGLES_trace.so:vendor/lib/libGLES_trace.so
 
 # Mobicore
-bin/mcDriverDaemon
-lib/libMcClient.so
-lib/libMcRegistry.so
+bin/mcDriverDaemon:vendor/bin/mcDriverDaemon
+lib/libMcClient.so:vendor/lib/libMcClient.so
+lib/libMcRegistry.so:vendor/lib/libMcRegistry.so
 
 # NXP Noise Cancelling
 vendor/lib/liblvverx_3.25.00.so:vendor/lib/soundfx/liblvverx.so|575865ce767dd1ab576118ba47254799757a2a1b
