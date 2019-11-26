@@ -34,7 +34,7 @@ cc_library_shared {
     include_dirs: [
         "frameworks/native/include/media/openmax",
         "frameworks/native/libs/binder/include",
-        "system/core/libion/include",
+        "system/memory/libion/include",
         "device/samsung/universal5420-common/hardware/camera/device/include"
     ],
     export_include_dirs: ["."],
