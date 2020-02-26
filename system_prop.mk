@@ -27,6 +27,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.disableabsvol=true
 
+# fastbootd
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.fastbootd.available=true
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwc.winupdate=0 \
