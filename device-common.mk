@@ -83,6 +83,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps.conf
 
+# fastbootd
+PRODUCT_PACKAGES += \
+    fastbootd
 
 # Graphics
 PRODUCT_PACKAGES += \
