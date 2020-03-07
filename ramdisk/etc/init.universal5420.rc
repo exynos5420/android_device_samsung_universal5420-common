@@ -155,6 +155,9 @@ on boot
     chown system system /sys/class/sec/sec_touchkey/touchkey_enabled
     chmod 0660 /sys/class/sec/sec_touchkey/touchkey_enabled
 
+    # GnssConfiguration doesn't actually look at gps.conf, just the debug file
+    mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
+
     # SENSORS
     # Accelerometer_sensor
     chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
