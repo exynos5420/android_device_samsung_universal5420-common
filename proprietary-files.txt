@@ -16,7 +16,6 @@ vendor/lib/egl/libGLES_mali.so
 lib/libGLES_trace.so
 
 # Mobicore
-bin/cs
 bin/mcDriverDaemon
 lib/libMcClient.so
 lib/libMcRegistry.so
