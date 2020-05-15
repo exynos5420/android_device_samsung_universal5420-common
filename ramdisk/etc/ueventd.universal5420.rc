@@ -1,3 +1,4 @@
+/dev/alarm                0664   system     radio
 /dev/mali0                0666   system     system
 /dev/ion                  0666   system     system
 /dev/exynos-mem           0660   system     graphics
