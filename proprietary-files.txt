@@ -4,6 +4,9 @@
 # aptX - from marlin - OPM1.171019.011
 lib/libaptX_encoder.so:vendor/lib/libaptX_encoder.so|984739a0bc968e18f75ced205733fe3f51c2d4f0
 
+# Audio
+lib/libaudioroute.so|46fcafe8de5c4fe078ad9e9e613bc260fd137106
+
 # Bluetooth firmware - pinned to T705XXU1CPK2
 vendor/firmware/bcm4350_V0301.0609.hcd|e6850eace7336e7390d53e7d9f47cc008f3c18f6
 
