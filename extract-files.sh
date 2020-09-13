@@ -71,4 +71,7 @@ BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
 # Update trustlets location
 sed -i 's|system/app|vendor/app|g' $BLOB_ROOT/vendor/bin/mcDriverDaemon
 
+# Replace protobuf with vndk29 compat libs for specified libs
+patchelf --replace-needed libprotobuf-cpp-lite.so libprotobuf-cpp-lite-v29.so $BLOB_ROOT/vendor/lib/libMcClient.so
+
 "${MY_DIR}"/setup-makefiles.sh
