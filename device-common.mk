@@ -108,6 +108,8 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
+PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+
 # Keymaster
 PRODUCT_PACKAGES += \
     keystore.exynos5 \
