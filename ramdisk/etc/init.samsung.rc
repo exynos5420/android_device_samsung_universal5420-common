@@ -224,12 +224,6 @@ on post-fs-data
 # ] SEC_MM_DRM
 
 # [ SEC_SELINUX_PORTING COMMON
-    # Separate location for storing security policy files on data
-    mkdir /data/security 0710 system system_access
-# ] SEC_SELINUX_PORTING COMMON
-
-
-# [ SEC_SELINUX_PORTING COMMON
     restorecon -R /efs
     restorecon -R /carrier
 # ] SEC_SELINUX_PORTING COMMON
@@ -264,7 +258,7 @@ on boot
     chown nfc nfc /dev/sec-nfc
 
     # MST/NFC Switch
-    chown spay system /dev/mst_ctrl
+    chown system system /dev/mst_ctrl
     chmod 0660 /dev/mst_ctrl
 
     #MST Factory Test
