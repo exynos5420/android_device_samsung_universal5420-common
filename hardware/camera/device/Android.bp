@@ -4,6 +4,7 @@ cc_library_shared {
     proprietary: true,
     srcs: [
         "CameraDevice.cpp",
+        "MemoryHeapIon.cpp",
     ],
     shared_libs: [
         "libhidlbase",
@@ -22,12 +23,20 @@ cc_library_shared {
         "liblog",
         "libhardware",
         "libcamera_metadata",
+        "libbinder",
+        "libbase",
     ],
     static_libs: [
         "android.hardware.camera.common@1.0-helper"
     ],
     include_dirs: [
-        "frameworks/native/include/media/openmax"
+        "frameworks/native/include/media/openmax",
+        "frameworks/native/libs/binder/include",
+        "system/core/libion/include",
+        "device/samsung/universal5420-common/hardware/camera/device/include"
     ],
-    export_include_dirs: ["."]
+    export_include_dirs: ["."],
+    header_libs: [
+        "libbinder_headers",
+    ],
 }
