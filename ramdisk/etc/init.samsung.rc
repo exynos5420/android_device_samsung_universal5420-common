@@ -451,6 +451,7 @@ on boot
     write /sys/block/sda/queue/scheduler noop
 
     copy /system/etc/battery_charging_temp.data /sys/class/power_supply/battery/batt_temp_table
+    setprop init.svc.console stopped
 
 on charger
     chmod 0664 /sys/class/power_supply/battery/batt_temp_table
