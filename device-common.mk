@@ -201,10 +201,6 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     libgutils
 
-# TextClassifier
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
-
 # Touch features
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.samsung
