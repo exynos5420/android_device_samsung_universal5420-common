@@ -29,6 +29,10 @@
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 
+#include <binder/IMemory.h>
+#include <binder/MemoryBase.h>
+#include <binder/MemoryHeapBase.h>
+
 namespace android {
 namespace hardware {
 namespace camera {
@@ -114,9 +118,12 @@ private:
 
     class CameraHeapMemory : public RefBase {
     public:
+	    CameraHeapMemory(size_t buf_size, uint_t num_buffers = 1);
         CameraHeapMemory(int fd, size_t buf_size, uint_t num_buffers = 1);
+
         explicit CameraHeapMemory(
             sp<IAllocator> ashmemAllocator, size_t buf_size, uint_t num_buffers = 1);
+
         void commonInitialization();
         virtual ~CameraHeapMemory();
 
@@ -130,6 +137,7 @@ private:
         sp<IMemory>      mHidlHeapMemory; // munmap happens in ~IMemory()
 
         CameraMemory handle;
+	    sp<MemoryHeapBase> mIonHeap;
     };
     sp<IAllocator> mAshmemAllocator;
 
