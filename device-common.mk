@@ -141,6 +141,11 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
 
+# Network
+PRODUCT_PACKAGES +=  \
+    InProcessNetworkStack \
+    com.android.tethering.inprocess
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service.universal5420
