@@ -53,4 +53,8 @@ setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
+# Fix proprietary blobs
+BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
+sed -i 's|EGL_KHR_surfaceless_context|EGL_HAX_surfaceless_context|g' $BLOB_ROOT/vendor/lib/egl/libGLES_mali.so
+
 "$MY_DIR"/setup-makefiles.sh
