@@ -168,7 +168,9 @@ PRODUCT_PACKAGES += \
 
 # SEC
 PRODUCT_PACKAGES += \
-    libsecnativefeature
+    libsecnativefeature \
+    libsecril-client \
+    libsecril-client-sap
 
 # Sensors
 PRODUCT_PACKAGES += \
