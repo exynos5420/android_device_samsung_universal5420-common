@@ -144,6 +144,14 @@ BOARD_USES_ONLY_GSC0_GSC1 := true
 # Seccomp filters
 BOARD_SECCOMP_POLICY += $(COMMON_PATH)/seccomp
 
+# SELinux
+include device/lineage/sepolicy/exynos/sepolicy.mk
+BOARD_SEPOLICY_TEE_FLAVOR := mobicore
+include device/samsung_slsi/sepolicy/sepolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+# For legacy HAL1 camera
+SELINUX_IGNORE_NEVERALLOWS := true
+
 # Shims
 TARGET_LD_SHIM_LIBS += \
     /vendor/lib/egl/libGLES_mali.so|/vendor/lib/libgutils.so \
