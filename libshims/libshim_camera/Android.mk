@@ -7,7 +7,7 @@ LOCAL_MODULE := libshim_camera
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
-LOCAL_SHARED_LIBRARIES:= libutils libcutils libbinder liblog libcamera_client libhardware
+LOCAL_SHARED_LIBRARIES:= libutils libcutils libbinder liblog libcamera_client libhardware libion
 LOCAL_SHARED_LIBRARIES += libcsc libexynosutils libhwjpeg libexynosv4l2 libexynosgscaler libion_exynos
 LOCAL_SHARED_LIBRARIES += libexpat libpower
 
