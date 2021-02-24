@@ -26,6 +26,7 @@ cc_library_shared {
         "libcamera_metadata",
         "libbinder",
         "libbase",
+        "libion",
     ],
     static_libs: [
         "android.hardware.camera.common@1.0-helper"
