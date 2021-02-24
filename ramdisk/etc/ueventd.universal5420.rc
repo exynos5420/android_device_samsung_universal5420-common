@@ -85,15 +85,15 @@
 /dev/video14              0660   media      media
 
 # camera
-/dev/video40              0660   media      media
-/dev/video41              0660   media      media
-/dev/video42              0660   media      media
-/dev/video43              0660   media      media
-/dev/video44              0660   media      media
-/dev/video45              0660   media      media
-/dev/video46              0660   media      media
-/dev/video47              0660   media      media
-/dev/video48              0660   media      media
+/dev/video40              0660   media      camera
+/dev/video41              0660   media      camera
+/dev/video42              0660   media      camera
+/dev/video43              0660   media      camera
+/dev/video44              0660   media      camera
+/dev/video45              0660   media      camera
+/dev/video46              0660   media      camera
+/dev/video47              0660   media      camera
+/dev/video48              0660   media      camera
 /dev/media2               0660   media      media
 
 # MobiCore
