@@ -1,8 +1,5 @@
 # Wi-Fi init file
 
-    #Create directory for hostapd
-    mkdir /data/hostapd 0770 system wifi
-
 on post-fs-data
     # give system access to wpa_supplicant.conf for backup and restore
     mkdir /data/misc/wifi 0770 wifi system
