@@ -14,6 +14,8 @@ lib/libvdis.so:vendor/lib/libvdis.so
 # Graphics
 vendor/lib/egl/libGLES_mali.so
 lib/libGLES_trace.so:vendor/lib/libGLES_trace.so
+# libw is a local libm compile of LineageOS/android_bionic@40e6fdba0 with 269025 applied on top
+vendor/lib/libw.so|14b82a29223980532b54739c2b94c318e2675515
 
 # Mobicore
 bin/mcDriverDaemon:vendor/bin/mcDriverDaemon
