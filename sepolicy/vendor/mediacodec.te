@@ -1,0 +1,6 @@
+# mediacodec.te
+
+allow mediacodec debugfs_ion:dir search;
+
+allow mediacodec sysfs_mfc:dir search;
+allow mediacodec sysfs_mfc:file r_file_perms;

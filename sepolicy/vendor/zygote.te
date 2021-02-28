@@ -1,0 +1,5 @@
+# zygote.te
+
+allow system_server app_zygote:process getpgid;
+
+dontaudit zygote proc_cmdline:file r_file_perms;

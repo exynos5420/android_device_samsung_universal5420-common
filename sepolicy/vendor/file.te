@@ -1,9 +1,63 @@
+# file.te
 
+# data types
+type audit_data_file, data_file_type, file_type;
+type camera_vendor_data_file, data_file_type, file_type;
 type display_vendor_data_file, file_type, data_file_type;
+type gps_data_file, file_type, data_file_type, data_file_type;
+type mediadrm_vendor_data_file, file_type, data_file_type;
+type security_data_file, file_type, data_file_type;
+type sensors_data_file, file_type, data_file_type;
+type vcs_data_file, file_type, data_file_type;
 
+# debug types
+type debugfs_clock, fs_type, debugfs_type;
+type debugfs_ion, fs_type, debugfs_type;
+type debugfs_ios, fs_type, debugfs_type;
+type debugfs_mali, fs_type, debugfs_type;
+type debugfs_mali_mem, fs_type, debugfs_type;
+type debugfs_oom, fs_type, debugfs_type;
+type debugfs_regulator, fs_type, debugfs_type;
 
+# efs types
+type baro_delta_factoryapp_efs_file, file_type;
+type drm_efs_file, file_type;
+type factorymode_factoryapp_efs_file, file_type;
+type radio_factoryapp_efs_file, file_type;
+type sensor_efs_file, file_type;
+type sensor_factoryapp_efs_file, file_type;
+
+# proc
+type proc_input_devices, fs_type, proc_type;
+type proc_reset_reason, fs_type, proc_type;
+type proc_sec, fs_type, proc_type;
+type proc_vm, fs_type, proc_type;
+type proc_wifiloader, fs_type, proc_type;
+
+# sysfs types
+type sysfs_ausb, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_camera, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_cpuidle_writable, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_gps, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_graphics, sysfs_type, fs_type, mlstrustedobject;
+type sysfs_homebutton_writable, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_interactive_writable, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_jack, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_light, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_mdnie, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_mif, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_mipi_writable, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_mmc, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_mmu, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_mfc, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_muic, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_multipdp_writable, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_sec_touchkey, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_usb_host, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_usb_power, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_usb_power_writable, fs_type, sysfs_type, mlstrustedobject;
-type preloader_block_device, dev_type;
+type sysfs_rndis, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_sec_switch, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_sensor, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_v4l, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_vibrator_writable, fs_type, sysfs_type, mlstrustedobject;

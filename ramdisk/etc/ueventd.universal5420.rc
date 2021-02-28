@@ -55,13 +55,14 @@
 /sys/class/thermal/thermal_zone0/boost_mode          0664 radio system
 
 # USB OTG
-/sys/class/sec/switch       usb_state   0664    radio   system
-/sys/class/sec/switch       chg_type    0664    radio   system
-/sys/class/sec/switch       otg_test    0664    radio   system
-/sys/class/sec/switch       usb_sel     0664    radio   system
-/sys/class/sec/switch       uart_sel    0664    radio   system
-/sys/class/sec/switch       uart_en     0664    radio   system
-/sys/class/sec/switch       apo_factory 0664    radio   system
+/sys/class/sec/switch       usb_state    0664    radio   system
+/sys/class/sec/switch       chg_type     0664    radio   system
+/sys/class/sec/switch       otg_test     0664    radio   system
+/sys/class/sec/switch       usb_sel      0664    radio   system
+/sys/class/sec/switch       uart_sel     0664    radio   system
+/sys/class/sec/switch       uart_en      0664    radio   system
+/sys/class/sec/switch       apo_factory  0664    radio   system
+/sys/class/sec/switch       attached_dev 0664    radio   system 
 
 /sys/class/host_notify/usb_otg      booster 0664    radio   system
 /sys/class/usb_notify/usb_control   disable 0664    system  usb

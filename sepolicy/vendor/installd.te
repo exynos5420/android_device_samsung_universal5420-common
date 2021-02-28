@@ -1,0 +1,3 @@
+# installd.te
+
+allow installd mobicore_data_file:dir create_dir_perms;

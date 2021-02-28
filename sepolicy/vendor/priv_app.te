@@ -1,0 +1,8 @@
+# priv_app.te
+
+allow priv_app{
+    debugfs_ion
+    debugfs_mali_mem
+}:file r_file_perms;
+
+dontaudit priv_app sysfs_ausb:file r_file_perms;

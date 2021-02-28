@@ -1,0 +1,15 @@
+# system_app.te
+
+allow system_app vcs_device:dir search;
+allow system_app vcs_device:file r_file_perms;
+allow system_app vcs_device:fifo_file rw_file_perms;
+
+allow system_app {
+     sysfs_mdnie
+     sysfs_graphics
+}:dir search;
+
+allow system_app sysfs_mdnie:file rw_file_perms;
+allow system_app sysfs_mdnie:lnk_file rw_file_perms;
+
+allow system_app vcsFPService:process signull;

@@ -1,0 +1,65 @@
+####################################
+# DebugFS
+#
+
+genfscon debugfs /mali/                         u:object_r:debugfs_mali:s0
+genfscon debugfs /mali/mem/                     u:object_r:debugfs_mali_mem:s0
+genfscon debugfs /ion                           u:object_r:debugfs_ion:s0
+
+genfscon debugfs /regulator/vhsic_1.0v_ap/open_count    u:object_r:debugfs_regulator:s0
+
+####################################
+# Proc
+#
+
+genfscon proc /deferred_initcalls  u:object_r:proc_wifiloader:s0
+
+# Input
+genfscon proc /bus/input/devices    u:object_r:proc_input_devices:s0
+
+# Reset Reason
+genfscon proc /reset_reason    u:object_r:proc_reset_reason:s0
+
+# SEC
+genfscon proc /sec_log    u:object_r:proc_sec:s0
+
+# VM
+genfscon proc /sys/vm/dirty_ratio               u:object_r:proc_vm:s0
+genfscon proc /sys/vm/dirty_bytes               u:object_r:proc_vm:s0
+genfscon proc /sys/vm/dirty_background_bytes    u:object_r:proc_vm:s0
+genfscon proc /sys/vm/min_free_kbytes           u:object_r:proc_vm:s0
+
+genfscon proc /sys/vm/swappiness                u:object_r:proc_vm:s0
+genfscon proc /sys/vm/vfs_cache_pressure        u:object_r:proc_vm:s0
+genfscon proc /sys/vm/lowmem_reserve_ratio      u:object_r:proc_vm:s0
+
+####################################
+# Sysfs
+#
+
+# Audio sysfs
+genfscon sysfs /devices/virtual/audio/earjack    u:object_r:sysfs_jack:s0
+
+# CPU/Scheduler devices
+genfscon sysfs /power/cpufreq_table                       u:object_r:sysfs_power_writable:s0
+genfscon sysfs /module/cpuidle/parameters/off             u:object_r:sysfs_cpuidle_writable:s0
+
+# Input booster
+genfscon sysfs /class/input_booster    u:object_r:sysfs_input:s0
+
+# Net
+genfscon sysfs /devices/virtual/net/rmnet0 u:object_r:sysfs_net:s0
+genfscon sysfs /devices/virtual/net/rmnet1 u:object_r:sysfs_net:s0
+genfscon sysfs /devices/virtual/net/rmnet2 u:object_r:sysfs_net:s0
+genfscon sysfs /devices/virtual/net/rmnet3 u:object_r:sysfs_net:s0
+
+# SEC GPIO input devices
+genfscon sysfs /class/secgpio_check/secgpio_check_all/gpioinit_check        u:object_r:sysfs_input:s0
+genfscon sysfs /class/secgpio_check/secgpio_check_all/gpiosleep_check       u:object_r:sysfs_input:s0
+genfscon sysfs /class/secgpio_check/secgpio_check_all/checked_sleepGPIO     u:object_r:sysfs_input:s0
+
+# Touchscreen
+genfscon sysfs /devices/virtual/sec/tsp/cmd_list    u:object_r:sysfs_touchscreen_writable:s0
+
+# USB lun device
+genfscon sysfs /devices/platform/exynos-dwc3.0/exynos-ss-udc.0/gadget/lun0    u:object_r:sysfs_android_usb:s0

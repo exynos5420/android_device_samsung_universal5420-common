@@ -1,0 +1,7 @@
+# vold.te
+
+allow vold efs_file:dir r_dir_perms;
+
+allow vold gps_data_file:dir r_dir_perms;
+
+dontaudit vold hal_bootctl_hwservice:hwservice_manager find;

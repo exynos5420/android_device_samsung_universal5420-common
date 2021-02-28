@@ -1,0 +1,29 @@
+# cbd.te
+
+allow cbd {
+    radio_device
+    radio_qos_device
+}:chr_file rw_file_perms;
+
+allow cbd efs_file:file w_file_perms;
+
+allow cbd {
+    proc_net
+    proc_stat
+}:file r_file_perms;
+
+allow cbd sysfs_sec_switch:dir r_dir_perms;
+
+allow cbd {
+    sysfs_power
+    sysfs_sec_switch
+    sysfs_usb_power_writable
+}:file rw_file_perms;
+
+allow cbd properties_device:dir r_dir_perms;
+
+##### FIXME ######
+allow cbd self:capability dac_override;
+##### FIXME ######
+
+set_prop(cbd, radio_prop)

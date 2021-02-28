@@ -1,0 +1,3 @@
+# storaged.te
+
+allow storaged sysfs_disk_stat:file r_file_perms;

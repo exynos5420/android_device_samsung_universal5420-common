@@ -1,0 +1,3 @@
+# fcsk.te
+
+allow fsck persdata_block_device:blk_file rw_file_perms;

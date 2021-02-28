@@ -1,0 +1,15 @@
+# surfaceflinger.te
+
+allow surfaceflinger audio_device:chr_file rw_file_perms;
+allow surfaceflinger secmem_device:chr_file rw_file_perms;
+
+allow surfaceflinger {
+    sysfs_devices_system_cpu
+    sysfs_mmu
+    sysfs_v4l
+}:dir r_dir_perms;
+
+allow surfaceflinger {
+    sysfs_mmu
+    sysfs_v4l
+}:file r_file_perms;

@@ -1,0 +1,13 @@
+# hal_sensors_default.te
+
+allow hal_sensors_default system_data_file:dir create_dir_perms;
+allow hal_sensors_default system_data_file:file create_file_perms;
+
+allow hal_sensors_default sensors_data_file:dir create_dir_perms;
+allow hal_sensors_default sensors_data_file:file create_file_perms;
+
+allow hal_sensors_default sysfs_muic:dir r_dir_perms;
+
+allow hal_sensors_default sysfs_input:file rw_file_perms;
+
+allow hal_sensors_default sysfs_input:lnk_file r_file_perms;

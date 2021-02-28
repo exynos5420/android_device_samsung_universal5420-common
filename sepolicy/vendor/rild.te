@@ -1,0 +1,8 @@
+# rild.te
+
+allow rild radio_data_file:dir create_dir_perms;
+allow rild radio_data_file:file create_file_perms;
+
+allow rild sysfs_multipdp_writable:file w_file_perms;
+
+set_prop(rild, net_radio_prop)

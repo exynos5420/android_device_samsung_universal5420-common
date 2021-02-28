@@ -1,6 +1,30 @@
-type secmem_device, dev_type;
+# Block devices
+type bota_block_device, dev_type;
+type carrier_block_device, dev_type;
+type cdmaradio_block_device, dev_type;
+type hidden_block_device, dev_type;
+type ota_block_device, dev_type;
+type param_block_device, dev_type;
+type persdata_block_device, dev_type;
+type reserved2_block_device, dev_type;
+type tdata_block_device, dev_type;
+type tombstones_block_device, dev_type;
+
+# Fingerprint
+type fingerprint_device, dev_type;
+type vcs_device, dev_type;
+
+# GPS
+type gps_device, dev_type;
+
+# MIF
+type mif_device, dev_type;
+
 # Unified Memory Management device
 type ump_device, dev_type;
 
-# /dev/umts_boot*, /dev/ehci_power
-type mif_device, dev_type;
+# /dev/rfkill
+type rfkill_device, dev_type;
+
+# Secure
+type secmem_device, dev_type;

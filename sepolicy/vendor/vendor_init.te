@@ -1,0 +1,30 @@
+# vendor_init.te
+
+allow vendor_init {
+    anr_data_file
+    dhcp_data_file
+    media_data_file
+    media_rw_data_file
+    wpa_socket
+}:dir setattr;
+
+allow vendor_init anr_data_file:dir getattr;
+
+allow vendor_init {
+    media_rw_data_file
+    wifi_data_file
+}:file setattr;
+
+allow vendor_init {
+    apk_data_file
+    gps_data_file
+    mobicore_data_file
+    nfc_data_file
+    security_data_file
+    system_data_file
+    wifi_data_file
+}:dir create_dir_perms;
+
+allow vendor_init wifi_data_file:file create_file_perms;
+
+allow vendor_init proc_vm:file w_file_perms;

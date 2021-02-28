@@ -1,0 +1,3 @@
+# hal_keymaster_default.te
+
+allow hal_keymaster_default tee:unix_stream_socket connectto;

@@ -1,0 +1,8 @@
+# wifiloader.te
+
+type wifiloader, domain;
+type wifiloader_exec, exec_type, vendor_file_type, file_type;
+
+allow wifiloader proc_wifiloader:file r_file_perms;
+
+init_daemon_domain(wifiloader)
