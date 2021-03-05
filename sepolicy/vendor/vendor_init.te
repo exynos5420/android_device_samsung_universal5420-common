@@ -11,12 +11,14 @@ allow vendor_init {
 allow vendor_init anr_data_file:dir getattr;
 
 allow vendor_init {
+    bluetooth_data_file
     media_rw_data_file
     wifi_data_file
 }:file setattr;
 
 allow vendor_init {
     apk_data_file
+    bluetooth_data_file
     gps_data_file
     mobicore_data_file
     nfc_data_file
