@@ -26,7 +26,7 @@
 /dev/video37              0660   media      camera
 
 # scalers
-/dev/video50              0660   media      graphics
+/dev/video50              0660   mediacodec camera
 /dev/video51              0660   media      graphics
 /dev/video52              0660   media      graphics
 
