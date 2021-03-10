@@ -57,7 +57,6 @@ type sysfs_usb_host, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_usb_power, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_usb_power_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_rndis, fs_type, sysfs_type, mlstrustedobject;
-type sysfs_sec_switch, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_sensor, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_v4l, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_vibrator_writable, fs_type, sysfs_type, mlstrustedobject;
