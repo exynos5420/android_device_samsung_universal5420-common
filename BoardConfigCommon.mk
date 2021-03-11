@@ -98,9 +98,6 @@ BOARD_USES_TRUST_KEYMASTER := true
 # Legacy memfd
 TARGET_HAS_MEMFD_BACKPORT := true
 
-# Memory
-MALLOC_SVELTE := true
-
 # Partitions
 BOARD_ROOT_EXTRA_FOLDERS := efs persist
 
