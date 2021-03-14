@@ -29,6 +29,7 @@ type sensor_factoryapp_efs_file, file_type;
 
 # proc
 type proc_input_devices, fs_type, proc_type;
+type proc_last_kmsg, fs_type, proc_type;
 type proc_reset_reason, fs_type, proc_type;
 type proc_sec, fs_type, proc_type;
 type proc_vm, fs_type, proc_type;

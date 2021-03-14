@@ -8,7 +8,12 @@ allow vendor_init {
     wpa_socket
 }:dir setattr;
 
-allow vendor_init anr_data_file:dir getattr;
+allow vendor_init {
+    anr_data_file
+    dhcp_data_file
+    media_rw_data_file
+    wpa_socket
+}:dir getattr;
 
 allow vendor_init {
     bluetooth_data_file
