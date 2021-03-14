@@ -7,6 +7,7 @@ allow gpsd gps_data_file:file create_file_perms;
 
 allow gpsd gps_data_file:fifo_file create_file_perms;
 
+allow gpsd bt_device:chr_file rw_file_perms;
 allow gpsd gps_device:chr_file rw_file_perms;
 
 allow gpsd sysfs_gps:file rw_file_perms;
