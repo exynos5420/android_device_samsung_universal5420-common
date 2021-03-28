@@ -1,5 +1,13 @@
+<<<<<<< PATCH SET (13b0d1 universal5420: dontaudit netd module_request;)
+# netd.te
+# Netd should not have SYS_MODULE privs, nor should it be requesting module loads
+# (things it requires should be built directly into the kernel)
+
+dontaudit netd kernel:system module_request;
+=======
 # Netd should not have SYS_MODULE privs, nor should it be requesting module loads
 # (things it requires should be built directly into the kernel)
 
 dontaudit netd kernel:system module_request;
 allow netd sysfs:file rw_file_perms;
+>>>>>>> BASE      (f619d4 sepolicy: changes addressing denials)
