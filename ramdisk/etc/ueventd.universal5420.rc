@@ -11,10 +11,10 @@
 /dev/HPD                  0660   system     system
 
 # mfc
-/dev/video6               0660   mediacodec mediadrm
-/dev/video7               0660   mediacodec mediadrm
-/dev/video8               0660   mediacodec mediadrm
-/dev/video9               0660   mediacodec mediadrm
+/dev/video6               0660   mediacodec drmrpc
+/dev/video7               0660   mediacodec drmrpc
+/dev/video8               0660   mediacodec drmrpc
+/dev/video9               0660   mediacodec drmrpc
 
 # gscalers
 /dev/video23              0660   media      graphics
