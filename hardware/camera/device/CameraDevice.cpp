@@ -15,7 +15,6 @@
  */
 
 #define LOG_TAG "CamDev@1.0-impl.exynos5420"
-#define USE_MEMORY_HEAP_ION
 
 #include <hardware/camera.h>
 #include <hardware/gralloc1.h>
@@ -25,10 +24,8 @@
 
 #include <media/hardware/HardwareAPI.h> // For VideoNativeHandleMetadata
 #include "CameraDevice_1_0.h"
-
-#ifdef USE_MEMORY_HEAP_ION
 #include <binder/MemoryHeapIon.h>
-#endif
+
 
 namespace android {
 namespace hardware {
@@ -112,16 +109,6 @@ CameraDevice::CameraDevice(
                 __FUNCTION__, mCameraId.c_str());
         mInitFail = true;
     }
-
-#ifdef USE_MEMORY_HEAP_ION
-
-#else
-    mAshmemAllocator = IAllocator::getService("ashmem");
-    if (mAshmemAllocator == nullptr) {
-        ALOGI("%s: cannot get ashmemAllocator", __FUNCTION__);
-        mInitFail = true;
-    }
-#endif
 }
 
 CameraDevice::~CameraDevice() {
@@ -315,17 +302,11 @@ CameraDevice::CameraHeapMemory::CameraHeapMemory(
     mHidlHandle = native_handle_create(1,0);
     mHidlHandle->data[0] = fcntl(fd, F_DUPFD_CLOEXEC, 0);
 
-#ifdef USE_MEMORY_HEAP_ION
     mIonHeap = new MemoryHeapIon(fd, buf_size * num_buffers);
-#else
-    const size_t pagesize = getpagesize();
-    size_t size = ((buf_size * num_buffers + pagesize-1) & ~(pagesize-1));
-    mHidlHeap = hidl_memory("ashmem", mHidlHandle, size);
-#endif
     commonInitialization();
 }
 
-#ifdef USE_MEMORY_HEAP_ION
+
 CameraDevice::CameraHeapMemory::CameraHeapMemory(
     size_t buf_size, uint_t num_buffers) :
         mBufSize(buf_size),
@@ -334,46 +315,12 @@ CameraDevice::CameraHeapMemory::CameraHeapMemory(
     mIonHeap = new MemoryHeapIon(buf_size * num_buffers);
     mHidlHandle = native_handle_create(1,0);
     mHidlHandle->data[0] = mIonHeap->getHeapID();
-    ALOGD("%s ion mHidlHandle %d",__FUNCTION__, mHidlHandle->data[0]);
-#else
-CameraDevice::CameraHeapMemory::CameraHeapMemory(
-    sp<IAllocator> ashmemAllocator,
-    size_t buf_size, uint_t num_buffers) :
-        mBufSize(buf_size),
-        mNumBufs(num_buffers) {
-    const size_t pagesize = getpagesize();
-    size_t size = ((buf_size * num_buffers + pagesize-1) & ~(pagesize-1));
-    ashmemAllocator->allocate(size,
-        [&](bool success, const hidl_memory& mem) {
-            if (!success) {
-                ALOGE("%s: allocating ashmem of %zu bytes failed!",
-                        __FUNCTION__, buf_size * num_buffers);
-                return;
-            }
-            mHidlHandle = native_handle_clone(mem.handle());
-            mHidlHeap = hidl_memory("ashmem", mHidlHandle, size);
-        });
-#endif
+
     commonInitialization();
 }
 
 void CameraDevice::CameraHeapMemory::commonInitialization() {
-#ifdef USE_MEMORY_HEAP_ION
-
     mHidlHeapMemData = mIonHeap->getBase();
-
-#else
-    mHidlHeapMemory = mapMemory(mHidlHeap);
-    if (mHidlHeapMemory == nullptr) {
-        ALOGE("%s: memory map failed!", __FUNCTION__);
-        native_handle_close(mHidlHandle); // close FD for the shared memory
-        native_handle_delete(mHidlHandle);
-        mHidlHeap = hidl_memory();
-        mHidlHandle = nullptr;
-        return;
-    }
-    mHidlHeapMemData = mHidlHeapMemory->getPointer();
-#endif
     handle.data = mHidlHeapMemData;
     handle.size = mBufSize * mNumBufs;
     handle.handle = this;
@@ -403,7 +350,7 @@ camera_memory_t* CameraDevice::sGetMemory(int fd, size_t buf_size, uint_t num_bu
     }
 
     CameraHeapMemory* mem;
-#ifdef USE_MEMORY_HEAP_ION
+
     if (fd < 0) {
         mem = new CameraHeapMemory(buf_size, num_bufs);
     } else {
@@ -417,18 +364,6 @@ camera_memory_t* CameraDevice::sGetMemory(int fd, size_t buf_size, uint_t num_bu
     hidl_handle hidlHandle = mem->mHidlHandle;
     MemoryId memId = device->mDeviceCallback->registerMemory(hidlHandle, buf_size, num_bufs);
     mem->handle.mId = memId;
-#else
-    if (fd < 0) {
-        mem = new CameraHeapMemory(device->mAshmemAllocator, buf_size, num_bufs);
-    } else {
-        mem = new CameraHeapMemory(fd, buf_size, num_bufs);
-    }
-    mem->incStrong(mem);
-    hidl_handle hidlHandle = mem->mHidlHandle;
-    MemoryId memId = device->mDeviceCallback->registerMemory(hidlHandle, buf_size, num_bufs);
-    mem->handle.mId = memId;
-    ALOGV("%s mem id: %d", __FUNCTION__, memId);
-#endif
 
     Mutex::Autolock _l(device->mMemoryMapLock);
     if (device->mMemoryMap.count(memId) != 0) {
