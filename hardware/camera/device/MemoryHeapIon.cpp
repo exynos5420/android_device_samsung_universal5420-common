@@ -205,7 +205,6 @@ MemoryHeapIon::MemoryHeapIon(size_t size, uint32_t flags, char const *name __att
             }
         } else {
             fd = ion_alloc(mIonClient, size, 0, ION_HEAP_SYSTEM_MASK, ION_FLAG_CACHED | ION_FLAG_CACHED_NEEDS_SYNC | ION_FLAG_PRESERVE_KMAP);
-            ALOGD("MemoryHeapIon : Allocated with default heap - SYSTEM heap");
         }
 
         flags = isReadOnly | heapMask | flagMask;
@@ -216,7 +215,6 @@ MemoryHeapIon::MemoryHeapIon(size_t size, uint32_t flags, char const *name __att
             flags |= USE_ION_FD;
             base = ion_map(fd, size, 0);
             if (base != MAP_FAILED) {
-                ALOGD("MemoryHeapIon init with fd=%d",fd);
                 init(fd, base, size, flags, NULL);
             } else {
                 ALOGE("MemoryHeapIon : ION mmap failed(size[%u], fd[%d]) : %s", size, fd, strerror(errno));
