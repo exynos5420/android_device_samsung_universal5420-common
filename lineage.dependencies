@@ -21,7 +21,7 @@
     },
     {
         "repository": "android_kernel_samsung_exynos5420",
-        "target_path": "kernel/samsung/exynos5420"
+        "target_path": "kernel/samsung/universal5420"
     },
     {
         "repository": "android_device_samsung_slsi_sepolicy",
