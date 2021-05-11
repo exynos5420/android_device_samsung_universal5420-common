@@ -204,6 +204,8 @@
 # Input
 /sys/class/input(/.*)?    u:object_r:sysfs_input:s0
 /sys/devices/virtual/input(/.*)?    u:object_r:sysfs_input:s0
+/sys/class/sec/sec_touchkey/touchkey_booster_enabled  u:object_r:sysfs_sec_touchkey:s0
+/sys/class/sec/tsp/tsp_booster_enabled                u:object_r:sysfs_touchscreen_writable:s0
 
 # LMK
 /sys/module/lowmemorykiller/parameters(/.*)?    u:object_r:sysfs_lowmemorykiller:s0
