@@ -67,8 +67,12 @@ extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
 
 # Fix proprietary blobs
 BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
+sed -i 's|EGL_KHR_surfaceless_context|EGL_HAX_surfaceless_context|g' $BLOB_ROOT/vendor/lib/egl/libGLES_mali.so
 
 # Update trustlets location
 sed -i 's|system/app|vendor/app|g' $BLOB_ROOT/vendor/bin/mcDriverDaemon
+
+# Mali blobs needs arm libm intrinsics deprecated in Q
+patchelf --replace-needed libm.so libw.so $BLOB_ROOT/vendor/lib/egl/libGLES_mali.so
 
 "${MY_DIR}"/setup-makefiles.sh
