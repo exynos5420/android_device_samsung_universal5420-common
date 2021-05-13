@@ -14,8 +14,11 @@ vendor/firmware/bcm4350_V0301.0609.hcd|e6850eace7336e7390d53e7d9f47cc008f3c18f6
 lib/libexynoscamera.so:vendor/lib/libexynoscamera.so
 lib/libvdis.so:vendor/lib/libvdis.so
 
-# Graphics - from A800SKSS1CTJ1
-vendor/lib/egl/libGLES_mali.so|e39818113e5c3aa5b2998be6ec1375a778701775
+# Graphics
+vendor/lib/egl/libGLES_mali.so
+lib/libGLES_trace.so:vendor/lib/libGLES_trace.so
+# libw is a local libm compile of LineageOS/android_bionic@40e6fdba0 with 269025 applied on top
+vendor/lib/libw.so|14b82a29223980532b54739c2b94c318e2675515
 
 # Mobicore
 bin/mcDriverDaemon:vendor/bin/mcDriverDaemon
