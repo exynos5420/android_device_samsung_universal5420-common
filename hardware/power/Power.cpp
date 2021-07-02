@@ -96,8 +96,6 @@ out:
         set(interactivePath + "/io_is_busy", interactive ? "1" : "0");
     }
 
-    setProfile(interactive ? PowerProfile::POWER_SAVE : PowerProfile::BALANCED);
-    
     return Void();
 }
 
@@ -165,7 +163,7 @@ Return<int32_t> Power::getFeature(LineageFeature feature) {
 void Power::initialize() {
     findInputNodes();
 
-    current_profile = PowerProfile::BALANCED;
+    setProfile(PowerProfile::BALANCED);
 
     for (const std::string& interactivePath : cpuInteractivePaths) {
         hispeed_freqs.emplace_back(get<std::string>(interactivePath + "/hispeed_freq", ""));
@@ -214,9 +212,6 @@ void Power::findInputNodes() {
 }
 
 void Power::setProfile(PowerProfile profile) {
-    if (current_profile == profile) {
-        return;
-    }
 
     switch (profile) {
         case PowerProfile::POWER_SAVE:
@@ -243,6 +238,8 @@ void Power::setProfile(PowerProfile profile) {
         default:
             break;
     }
+
+    current_profile = profile;
 }
 
 void Power::sendBoostpulse() {
