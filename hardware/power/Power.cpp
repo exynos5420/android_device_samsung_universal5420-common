@@ -95,8 +95,6 @@ out:
     for (const std::string& interactivePath : cpuInteractivePaths) {
         set(interactivePath + "/io_is_busy", interactive ? "1" : "0");
     }
-
-    setProfile(interactive ? PowerProfile::POWER_SAVE : PowerProfile::BALANCED);
     
     return Void();
 }
@@ -214,9 +212,6 @@ void Power::findInputNodes() {
 }
 
 void Power::setProfile(PowerProfile profile) {
-    if (current_profile == profile) {
-        return;
-    }
 
     switch (profile) {
         case PowerProfile::POWER_SAVE:
