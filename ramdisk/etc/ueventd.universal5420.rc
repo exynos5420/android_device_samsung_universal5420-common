@@ -53,7 +53,7 @@
 /sys/class/devfreq/exynos5-busfreq-int min_freq      0664 radio system
 /sys/class/devfreq/exynos5-busfreq-int max_freq      0664 radio system
 
-/sys/class/thermal/thermal_zone0/boost_mode          0664 radio system
+/sys/class/thermal/thermal_zone0 boost_mode          0664 radio system
 
 # USB OTG
 /sys/class/sec/switch       usb_state    0664    radio   system
