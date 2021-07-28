@@ -198,8 +198,12 @@ PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
 # Touch features
+ifeq ($(filter chagalllte chagallltetmo chagallwifi ha3g klimtlte klimtltecan klimttd klimtwifi,$(TARGET_DEVICE)),)
+
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.samsung
+
+endif
 
 # Trust HAL
 PRODUCT_PACKAGES += \
