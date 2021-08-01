@@ -1,3 +1,6 @@
+# Alarm device
+type alarm_device, dev_type;
+
 # Block devices
 type bota_block_device, dev_type;
 type carrier_block_device, dev_type;
