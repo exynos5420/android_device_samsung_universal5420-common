@@ -216,6 +216,7 @@
 # Lights
 /sys/devices/platform/s5p-mipi-dsim\.[0-9]+/backlight/panel(/.*)?    u:object_r:sysfs_backlight_writable:s0
 /sys/devices/virtual/sec/sec_touchkey/brightness        u:object_r:sysfs_sec_touchkey:s0
+/sys/devices/virtual/sec/sec_touchkey/glove_mode        u:object_r:sysfs_sec_touchkey:s0
 /sys/class/sec/sec_touchkey/input/enabled               u:object_r:sysfs_touchscreen_writable:s0
 /sys/class/leds(/.*)?                                   u:object_r:sysfs_leds:s0
 /sys/class/lcd/panel/power_reduce                       u:object_r:sysfs_graphics:s0

@@ -2,10 +2,12 @@
 
 allow hal_lineage_touch_default {
     sysfs_homebutton_writable
+    sysfs_sec_touchkey
     sysfs_sec_touchscreen
 }:dir r_dir_perms;
 
 allow hal_lineage_touch_default {
     sysfs_homebutton_writable
+    sysfs_sec_touchkey
     sysfs_sec_touchscreen
 }:file rw_file_perms;
