@@ -15,4 +15,6 @@ allow gpsd sensorservice_service:service_manager find;
 
 allow gpsd system_server:unix_stream_socket rw_socket_perms;
 
+allow gpsd sysfs_sec_gps:dir search;
+
 binder_call(gpsd, servicemanager)
