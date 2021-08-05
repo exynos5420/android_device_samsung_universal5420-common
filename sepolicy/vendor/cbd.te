@@ -5,6 +5,7 @@ allow cbd {
     radio_qos_device
 }:chr_file rw_file_perms;
 
+allow cbd bin_nv_data_efs_file:file rw_file_perms;
 allow cbd efs_file:file w_file_perms;
 
 allow cbd {
