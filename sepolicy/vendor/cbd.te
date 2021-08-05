@@ -18,6 +18,7 @@ allow cbd {
     sysfs_power
     sysfs_sec_switch
     sysfs_usb_power_writable
+    bin_nv_data_efs_file
 }:file rw_file_perms;
 
 allow cbd properties_device:dir r_dir_perms;
