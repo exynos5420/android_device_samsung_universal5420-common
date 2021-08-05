@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "938b4918_cfb32111",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-08-05T07:56:09Z",
+      "side": 1,
+      "message": "Maybe needed here ifneq?\nUnder this condition, two versions of the HAL are compiled.",
+      "revId": "49be90ec9503c1702a41ce7aed8e8ee59dace238",
+      "serverId": "c6d92919-bfe7-411c-9f64-004a8163e0f0",
+      "unresolved": true
+    }
+  ]
+}
