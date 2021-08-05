@@ -1,0 +1,3 @@
+# hal_audio_default.te
+
+allow hal_audio_default rild:unix_stream_socket connectto;
