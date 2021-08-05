@@ -128,7 +128,7 @@ on boot
     chmod 0660 /sys/class/sec/tsp/cmd_result
 	chown system system /sys/class/sec/tsp/input/enabled
 	chmod 0660 /sys/class/sec/tsp/input/enabled
-    
+
     # Permissions for Touchkey
     chown system radio /sys/class/sec/sec_touchkey/brightness
     chown system radio /sys/class/sec/sec_touchkey/touchkey_recent
@@ -147,8 +147,8 @@ on boot
 	chmod 0660 /sys/class/sec_touchkey/input/enabled
 
     # KeyDisabler permission
-    chown system system /sys/class/sec/sec_touchkey/touchkey_enabled
-    chmod 0660 /sys/class/sec/sec_touchkey/touchkey_enabled
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_enabled
+    chmod 0664 /sys/class/sec/sec_touchkey/touchkey_enabled
 
     # GnssConfiguration doesn't actually look at gps.conf, just the debug file
     mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
