@@ -86,6 +86,8 @@ DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 # Kernel
 TARGET_LINUX_KERNEL_VERSION := 3.4
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos5420
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    HOSTCFLAGS="-Wno-unused-command-line-argument"
 
 # Keymaster
 BOARD_USES_TRUST_KEYMASTER := true
