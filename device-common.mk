@@ -69,7 +69,8 @@ PRODUCT_PACKAGES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-service.samsung
+    android.hardware.ir@1.0-impl \
+    consumerir.universal5420
 
 # DRM
 PRODUCT_PACKAGES += \
