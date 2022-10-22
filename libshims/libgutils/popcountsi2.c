@@ -23,7 +23,7 @@ int __popcountsi2(int a)
     x = (x + (x >> 4)) & 0x0F0F0F0F;
     /* Every 8 bits holds the sum of every 8-set of bits (4 significant bits) */
     x = (x + (x >> 16));
-    /* The lower 16 bits hold two 8 bit sums (5 significant bits). 
+    /* The lower 16 bits hold two 8 bit sums (5 significant bits). */
     /*    Upper 16 bits are garbage */
     return (x + (x >> 8)) & 0x0000003F;  /* (6 significant bits) */
 }
