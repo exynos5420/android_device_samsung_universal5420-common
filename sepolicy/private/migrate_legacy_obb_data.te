@@ -1,0 +1,3 @@
+#============= migrate_legacy_obb_data ==============
+allow migrate_legacy_obb_data rootfs:dir { add_name write };
+allow migrate_legacy_obb_data rootfs:file { create open read };

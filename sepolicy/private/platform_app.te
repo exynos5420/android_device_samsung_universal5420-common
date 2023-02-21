@@ -1,0 +1,3 @@
+#============= platform_app ==============
+allow platform_app rootfs:dir setattr;
+allow platform_app exported_camera_prop:file read;

@@ -1,3 +1,4 @@
 # toolbox.te
 
 allow toolbox ram_device:blk_file rw_file_perms;
+allow toolbox rootfs:dir { open read setattr };

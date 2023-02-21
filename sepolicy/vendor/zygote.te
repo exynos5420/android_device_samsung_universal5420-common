@@ -1,6 +1,7 @@
 # zygote.te
 
 allow system_server app_zygote:process getpgid;
+allow zygote appdomain_tmpfs:file write;
 
 dontaudit zygote proc_cmdline:file r_file_perms;
 

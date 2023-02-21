@@ -6,6 +6,7 @@ allow init system_file:file mounton;
 allow init efs_block_device:lnk_file relabelto;
 
 allow init ram_device:blk_file w_file_perms;
+allow init ota_block_device:blk_file write;
 
 allow init {
     sysfs_interactive_writable
@@ -28,7 +29,5 @@ allow init {
 }:file rw_file_perms;
 
 allow init sysfs_input:lnk_file read;
-
 allow init tmpfs:lnk_file create;
-
 allow init socket_device:sock_file create_file_perms;

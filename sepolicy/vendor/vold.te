@@ -3,5 +3,6 @@
 allow vold efs_file:dir r_dir_perms;
 
 allow vold gps_data_file:dir r_dir_perms;
-
+allow vold rootfs:dir setattr;
 dontaudit vold hal_bootctl_hwservice:hwservice_manager find;
+allow vold rootfs:dir { add_name create write };

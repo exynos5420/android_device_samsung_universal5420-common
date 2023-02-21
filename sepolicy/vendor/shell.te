@@ -1,3 +1,6 @@
 # shell.te
 
 allow shell bt_device:chr_file rw_file_perms;
+allow shell kernel:system syslog_read;
+allow shell proc_last_kmsg:file getattr;
+allow shell proc_sec:file getattr;

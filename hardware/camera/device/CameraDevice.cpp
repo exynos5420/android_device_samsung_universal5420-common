@@ -128,7 +128,7 @@ void CameraDevice::setConnectionStatus(bool connected) {
         return;
     }
     if (!connected) {
-        ALOGW("%s: camera %s is disconneted. Closing", __FUNCTION__, mCameraId.c_str());
+        ALOGW("%s: camera %s is disconnected. Closing", __FUNCTION__, mCameraId.c_str());
         closeLocked();
     }
     return;
