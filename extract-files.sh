@@ -25,13 +25,21 @@ source "${HELPER}"
 CLEAN_VENDOR=true
 
 ONLY_UNIVERSAL_COMMON=
+ONLY_COMMON=
+ONLY_TARGET=
 KANG=
 SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
         --only-universal-common )
+		ONLY_UNIVERSAL_COMMON=true
+		;;
+        --only-common )
                 ONLY_COMMON=true
+                ;;
+        --only-target )
+                ONLY_TARGET=true
                 ;;
         -n | --no-cleanup )
                 CLEAN_VENDOR=false
@@ -64,11 +72,25 @@ function blob_fixup() {
             ;;
         vendor/lib/egl/libGLES_mali.so) # Mali blobs needs arm libm intrinsics deprecated in Q
             "${PATCHELF}" --replace-needed libm.so libw.so
-	    ;;
+            ;;
     esac
 }
 
-if [ -z "${ONLY_UNIVERSAL_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
+if [ -z "${ONLY_TARGET}" ] && [ -z "${ONLY_COMMON}" ]; then
+    # Initialize the helper for common device
+    setup_vendor "${DEVICE_UNIVERSAL_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+fi
+
+if [ -z "${ONLY_TARGET}" ] && [ -z "${ONLY_UNIVERSAL_COMMON}" ]; then
+    # Initialize the helper for common device
+    setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+fi
+
+if [ -z "${ONLY_UNIVERSAL_COMMON}" ] && [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
     # Reinitialize the helper for device
     source "${MY_DIR}/../${DEVICE}/extract-files.sh"
     setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
