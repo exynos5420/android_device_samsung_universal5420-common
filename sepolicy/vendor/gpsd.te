@@ -1,7 +1,7 @@
 # gpsd.te
 
 allow gpsd system_data_file:dir create_dir_perms;
-
+allow gpsd system_data_file:file create;
 allow gpsd gps_data_file:dir create_dir_perms;
 allow gpsd gps_data_file:file create_file_perms;
 

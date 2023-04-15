@@ -47,6 +47,8 @@ LOCAL_C_INCLUDES += \
 LOCAL_SRC_FILES:= \
     ExynosCameraHWImpl.cpp
 
+LOCAL_CFLAGS += -Wno-unused-parameter
+
 LOCAL_HEADER_LIBRARIES += \
     libnativebase_headers
 

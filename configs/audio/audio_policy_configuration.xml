@@ -3,7 +3,7 @@
 
 <audioPolicyConfiguration version="1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-    <globalConfiguration speaker_drc_enabled="false"/>
+    <globalConfiguration speaker_drc_enabled="true"/>
 
     <modules>
         <module name="primary" halVersion="3.0">
@@ -20,6 +20,11 @@
             <mixPorts>
                 <!-- Playback(Output) Streams -->
                 <mixPort name="primary-out" role="source" flags="AUDIO_OUTPUT_FLAG_PRIMARY">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </mixPort>
+
+                <mixPort name="fast" role="source" flags="AUDIO_OUTPUT_FLAG_FAST">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
@@ -99,21 +104,21 @@
 
             <routes>
                 <route sink="Earpiece" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
                 <route sink="Speaker" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
                 <route sink="Wired Headset" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
                 <route sink="Wired Headphone" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
                 <route sink="Dock Headset" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
                 <route sink="Bt Sco" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
                 <route sink="Bt Sco Headset" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
                 <route sink="Bt Sco Car Kit" type="mix"
-                       sources="primary-out"/>
+                       sources="primary-out,fast"/>
 
                 <route sink="primary-in" type="mix"
                        sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic,Bt Sco Headset Mic,Voice Call Mic"/>

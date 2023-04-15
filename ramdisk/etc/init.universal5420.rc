@@ -23,6 +23,8 @@ on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
+    mkdir /oem/media 0770 media_rw media_rw
+    chown media_rw media_rw /oem/media
 
     setprop vold.post_fs_data_done 1
 

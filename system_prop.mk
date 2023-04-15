@@ -39,7 +39,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers = 3 \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
-    ro.opengles.version=196609
+    ro.opengles.version=196609 \
+    ro.hardware.egl=mali \
+    ro.board.platform=exynos5
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -61,4 +63,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    wifi.direct.interface=p2p0
+    wifi.direct.interface=p2p0 \
+    wifi.supplicant_scan_interval = 300
+# Time between scans in seconds. Keep it high to minimize battery drain.
+# This only affects the case in which there are remembered access points,
+# but none are in range.
+
+   

@@ -201,7 +201,8 @@ PRODUCT_PACKAGES += \
 
 # Seccomp filters
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+    $(COMMON_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(COMMON_PATH)/seccomp/configstore@1.1.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/configstore@1.1.policy
 
 # Sensors
 PRODUCT_PACKAGES += \

@@ -2,3 +2,5 @@
 
 binder_call(system_app, storaged)
 binder_call(system_app, system_suspend)
+allow system_app exported_camera_prop:file read;
+allow system_app storaged:binder call;
